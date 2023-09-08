@@ -22,10 +22,10 @@ from django.urls import include, path, re_path
 from django.views.static import serve
 from .settings import STATICFILES_DIRS
 
-# static_urlpatterns = [
-#     # re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
-#     re_path(r"^static/(?P<path>.*)$", serve, {"document_root": STATICFILES_DIRS}),
-# ]
+static_urlpatterns = [
+    # re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+    re_path(r"^static/(?P<path>.*)$", serve, {"document_root": STATICFILES_DIRS}),
+]
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -41,6 +41,6 @@ urlpatterns = [
     path('deletecompany/<int:id>/',views.DeleteCompany,name="deletecompany"),
     path('reviewinvoice/',views.ReviewInvoice,name="reviewinvoice"),
     path('reviewinvoice/<int:pk>/',views.view,name=""),
-        # path("", include(static_urlpatterns)),
+        path("", include(static_urlpatterns)),
 ]
 
