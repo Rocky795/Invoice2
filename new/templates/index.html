@@ -10,15 +10,16 @@
 </head>
 
 <body>
+    {% load static %}
     {% include "./navbar.html" %} 
 
     {%block content%}
     {%endblock content%}
 
 
-    <script src="/static/JS/jquery.js"></script>
-    <script src="/static/JS/popper.js"></script>
-    <script src="/static/JS/bootstrap.js"></script>
+    <script src="{%static 'JS/jquery.js'%}"></script>
+    <script src="{%static 'JS/propper.js'%}"></script>
+    <script src="{%static 'JS/bootstrap.js'%}"></script>
 
 </body>
 

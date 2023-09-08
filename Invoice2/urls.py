@@ -18,9 +18,19 @@ from django.contrib import admin
 from django.urls import path
 # from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from new import views
+from django.urls import include, path, re_path
+from django.views.static import serve
+from .settings import STATICFILES_DIRS
+
+# static_urlpatterns = [
+#     # re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+#     re_path(r"^static/(?P<path>.*)$", serve, {"document_root": STATICFILES_DIRS}),
+# ]
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+
+
     path('',views.login_view),
     path('dashboard/',views.dashboard,name="dashboard"),
     path('logout/',views.view_logout,name="logout"),
@@ -30,5 +40,7 @@ urlpatterns = [
     path('updatecompany/<int:id>/',views.updatecompany,name="updatecompany"),
     path('deletecompany/<int:id>/',views.DeleteCompany,name="deletecompany"),
     path('reviewinvoice/',views.ReviewInvoice,name="reviewinvoice"),
-    path('reviewinvoice/<int:pk>/',views.view,name="")
+    path('reviewinvoice/<int:pk>/',views.view,name=""),
+        # path("", include(static_urlpatterns)),
 ]
+
